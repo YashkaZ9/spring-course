@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Человек</title>
+</head>
+<body>
+    <p th:text="${person.name} + ', ' + ${person.age}">VALUE</p>
+    <p th:text="'Id: ' + ${person.id}">VALUE</p>
+    <p th:text="'Email: ' + ${person.email}">VALUE</p>
+    <p th:text="'Address: ' + ${person.address}">VALUE</p>
+    <p th:text="'Date of birth: ' + ${person.dateOfBirth}">VALUE</p>
+    <table>
+        <tr>
+            <td>
+                <form th:method="get" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+                    <input type="submit" value="Редактировать">
+                </form>
+            </td>
+            <td>
+                <form th:method="delete" th:action="@{/people/{id}(id=${person.getId()})}">
+                    <input type="submit" value="Удалить">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
